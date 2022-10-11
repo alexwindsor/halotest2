@@ -1,9 +1,17 @@
-This is a base install of Laravel 9 with a few custom routes, a controller, a model and some blade views.
+Regarding the Activity model, I am not sure why the last three fields were in their own array
+ie. output['area_cleared_sqm', 'num_deminers', 'minutes_worked']
+if they should have had their own linked model ?
 
-The user interface lists "activity" and allows users to create new activity records or edit existing records. The Activity model simulates a database connection by returning static data. It does not save any data and that is not required for the purposes of this test.
+I added a minify package called renatomarinho/laravel-page-speed that I'd really recommend because it makes the site load a lot smoother and run a lot faster in your browser and would a make a huge difference if you have a slow internet connection
 
-### Instructions
-- Please create the ability for a user to "clone" an existing record, whilst being able to change any fields before saving
-- Make any improvements to the code as you see fit
-- If you run out of time, please write comments to describe what you would improve/change and how you would do it
-- Commit your changes to your own repository
+Instructions for installation :
+
+git clone https://github.com/alexwindsor/halotest1.git
+
+make a mysql database called halotest2
+
+edit .env file with your login credentials
+
+php artisan migrate --seed
+
+php artisan serve
