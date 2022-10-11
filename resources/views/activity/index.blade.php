@@ -35,7 +35,7 @@
 							</div>
 						</td>
 						<td class="text-nowrap">
-							{{ $activity['activity_date'] }}
+							{{ date('dS m Y', strtotime($activity['date'])) }}
 						</td>
 						<td>
 							{{ $activity['cycle_month'] }}
@@ -46,15 +46,14 @@
 						<td>{{ $activity['team_code'] }}</td>
 						<td>{{ $activity['contract_code'] }}</td>
 						<td class="text-nowrap">
-							@foreach($activity['outputs'] as $type => $output)
-								{{ Str::title(str_replace('_', ' ',$type)) }}<br>
-							@endforeach
+							Area cleared m2<br>
+							Num of deminers<br>
+							Minutes Worked
 						</td>
 						<td class="text-nowrap">
-							@foreach($activity['outputs'] as $type => $output)
-								{{ $output }}
-								<br>
-							@endforeach
+							{{ $activity['area_cleared_sqm'] }}<br>
+							{{ $activity['num_deminers'] }}<br>
+							{{ $activity['minutes_worked'] }}
 						</td>
 						<td>
 							<div class="btn-group float-right" role="group">
@@ -62,7 +61,8 @@
 									<i class="fa fa-bars"></i>
 								</button>
 								<div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-									<a class="dropdown-item" href="{{ route('activity.edit', [$activity['activity_id']]) }}">Edit</a>
+									<a class="dropdown-item" href="{{ route('activity.edit', [$activity['id']]) }}">Edit</a>
+									<a class="dropdown-item" href="{{ route('activity.clone', [$activity['id']]) }}">Clone</a>
 								</div>
 							</div>
 						</td>
